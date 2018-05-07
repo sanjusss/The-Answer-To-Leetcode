@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2DEE650A-29B2-49C0-AC1E-1D793EC89BD7}</ProjectGuid>
+    <ProjectGuid>{51E60CE8-90AA-476E-B74C-25ECF0E9C1CD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_0003Tests</RootNamespace>
-    <AssemblyName>0003Tests</AssemblyName>
+    <RootNamespace>_0007Tests</RootNamespace>
+    <AssemblyName>0007Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -60,9 +60,9 @@
     <Compile Include="SolutionTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\0003\0003.csproj">
-      <Project>{374BA2A4-EDE6-497C-97EA-87C0665BFB00}</Project>
-      <Name>0003</Name>
+    <ProjectReference Include="..\0007\0007.csproj">
+      <Project>{9D6FE018-6ED5-4E4A-884B-270CA9016F94}</Project>
+      <Name>0007</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
