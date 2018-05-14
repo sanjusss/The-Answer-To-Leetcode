@@ -19,10 +19,20 @@ namespace _0028
             {
                 return 0;
             }
-
-            for (int i = 0; i < haystack.Length - needle.Length + 1; i++)
+            
+            for (int i = 0; i < haystack.Length - needle.Length + 1; ++i)
             {
-                //if (HasString(haystack, i, needle))
+                bool success = true;
+                for (int j = 0; j < needle.Length; ++j)
+                {
+                    if (haystack[i + j] != needle[j])
+                    {
+                        success = false;
+                        break;
+                    }
+                }
+
+                if (success)
                 {
                     return i;
                 }
