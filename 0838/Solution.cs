@@ -10,53 +10,91 @@ namespace _0838
     {
         public string PushDominoes(string dominoes)
         {
-            string last;
+            string last = dominoes;
             StringBuilder next = new StringBuilder(dominoes);
-            string result = dominoes;
             int count = dominoes.Length;
-            do
+            for (int i = 0; i < count; ++i)
             {
-                last = result;
-                for (int i = 0; i < count; ++i)
+                switch (last[i])
                 {
-                    switch (last[i])
-                    {
-                        case '.':
-                            if (i < count - 1 &&
-                                last[i + 1] == 'L')
+                    case '.':
+                        for (int j = i + 1; j < count; ++j)
+                        {
+                            if (last[j] == '.')
                             {
-                                next[i] = 'L';
-                                ++i;
+                                continue;
                             }
-
-                            break;
-
-                        case 'R':
-                            if (i < count - 1 &&
-                                last[i + 1] == '.')
+                            else if (last[j] == 'R')
                             {
-                                if (i < count - 2 &&
-                                    last[i + 2] == 'L')
+                                i = j - 1;
+                                break;
+                            }
+                            else
+                            {
+                                for (int k = i; k < j; ++k)
                                 {
-                                    i += 2;
+                                    next[k] = 'L';
+                                }
+
+                                i = j;
+                                break;
+                            }
+                        }
+
+                        break;
+
+                    case 'R':
+                        for (int j = i + 1; j < count; ++j)
+                        {
+                            if (last[j] == '.')
+                            {
+                                if (j == count - 1)
+                                {
+                                    for (int k = i + 1; k <= j; ++k)
+                                    {
+                                        next[k] = 'R';
+                                    }
+
+                                    i = j - 1;
+                                    break;
                                 }
                                 else
                                 {
-                                    next[i + 1] = 'R'; 
+                                    continue;
                                 }
                             }
+                            else if (last[j] == 'R')
+                            {
+                                for (int k = i + 1; k < j; ++k)
+                                {
+                                    next[k] = 'R';
+                                }
 
-                            break;
+                                i = j - 1;
+                                break;
+                            }
+                            else
+                            {
+                                int midLength = (j - i - 1) / 2;
+                                for (int k = 1; k <= midLength; ++k)
+                                {
+                                    next[i + k] = 'R';
+                                    next[j - k] = 'L';
+                                }
 
-                        default:
-                            break;
-                    }
+                                i = j;
+                                break;
+                            }
+                        }
+
+                        break;
+
+                    default:
+                        break;
                 }
+            }
 
-                result = next.ToString();
-            } while (result != last);
-
-            return result;
+            return next.ToString();
         }
     }
 }
