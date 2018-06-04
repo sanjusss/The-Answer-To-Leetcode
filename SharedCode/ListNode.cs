@@ -10,7 +10,7 @@ namespace SharedCode
         public ListNode next;
         public ListNode(int x) { val = x; }
 
-        static ListNode CreateList(int[] arr)
+        public static ListNode CreateList(int[] arr)
         {
             ListNode root = null;
             ListNode head = null;
@@ -35,7 +35,7 @@ namespace SharedCode
         {
             while (l1 != null && l2 != null)
             {
-                if (l1.val != l2.val);
+                if (l1.val != l2.val)
                 {
                     return false;
                 }
