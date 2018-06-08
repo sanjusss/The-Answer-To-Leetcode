@@ -19,11 +19,40 @@ namespace _0015
 
             Array.Sort(nums);
             HashSet<int> set = new HashSet<int>(nums);
+            int cmin;
+            int l = 0;
+            int r = length - 1;
+            while (l < r)//求最小的cmin，使num[cmin] >= 0;
+            {
+                cmin = l + ((r - l) >> 1);//向下取整
+                if (nums[cmin] < 0)
+                {
+                    l = cmin + 1;
+                }
+                else
+                {
+                    r = cmin;
+                }
+            }
+
+            if (nums[r] >= 0)
+            {
+                cmin = r;
+                int v = nums[cmin];
+                while (cmin < length - 1 && v == nums[cmin + 1])
+                {
+                    ++cmin;
+                }
+            }
+            else
+            {
+                return result;
+            }
 
             int a = 0;
             do
             {
-                int c = a + 2;
+                int c = Math.Max(a + 2, cmin);
                 int v;
 
                 do
