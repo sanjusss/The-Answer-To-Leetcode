@@ -1,11 +1,27 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using _0073;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace SharedCode
+namespace _0073.Tests
 {
-    public class InputConvertor
+    [TestClass()]
+    public class SolutionTests
     {
+        [TestMethod()]
+        public void SetZeroesTest()
+        {
+            int[,] matrix = To2dArray("[[1,1,1],[1,0,1],[1,1,1]]");
+            int[,] expected = To2dArray("[[1,0,1],[0,0,0],[1,0,1]]");
+
+            Solution solution = new Solution();
+            solution.SetZeroes(matrix);
+            CollectionAssert.AreEqual(expected, matrix);
+        }
+
         public static IList<IList<int>> ToListList(string input)
         {
             input = input.Replace("],[", "#");
