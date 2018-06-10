@@ -26,6 +26,21 @@ namespace SharedCode
             return new List<int>(ToArray(input));
         }
 
+        public static int[][] ToArrayArray(string input)
+        {
+            input = input.Replace("],[", "#");
+            input = input.Replace("[", "");
+            input = input.Replace("]", "");
+            string[] words = input.Split('#');
+            int[][] rets = new int[words.Length][];
+            for (int i = 0; i < words.Length; ++i)
+            {
+                rets[i] = ToArray(words[i]);
+            }
+
+            return rets;
+        }
+
         public static int[] ToArray(string input)
         {
             input = input.Replace("[", "");
