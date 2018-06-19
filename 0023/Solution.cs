@@ -52,47 +52,54 @@ namespace _0023
 
     public class Solution
     {
+        public class ListNodeCompare : IComparer<ListNode>
+        {
+            public int Compare(ListNode x, ListNode y)
+            {
+                return x.val.CompareTo(y.val);
+            }
+        }
+
         public ListNode MergeKLists(ListNode[] lists)
         {
             ListNode root = null;
             ListNode head = null;
-            List<ListNode> nodes = new List<ListNode>(lists);
-            for (int i = nodes.Count - 1; i >= 0; --i)
+            List<ListNode> nodes = new List<ListNode>();
+            foreach (var i in lists)
             {
-                if (nodes[i] == null)
+                if (i != null)
                 {
-                    nodes.RemoveAt(i);
+                    nodes.Add(i);
                 }
             }
 
+            ListNodeCompare compare = new ListNodeCompare();
+            nodes.Sort(compare);
             while (nodes.Count > 0)
             {
-                int index = -1;
-                int minValue = int.MaxValue;
-                for (int i = 0; i < nodes.Count; i++)
-                {
-                    if (nodes[i].val < minValue)
-                    {
-                        index = i;
-                        minValue = nodes[i].val;
-                    }
-                }
-
+                ListNode node = nodes[0];
+                nodes.RemoveAt(0);
                 if (root == null)
                 {
-                    root = new ListNode(nodes[index].val);
+                    root = node;
                     head = root;
                 }
                 else
                 {
-                    head.next = new ListNode(nodes[index].val);
-                    head = head.next;
+                    head.next = node;
+                    head = node;
                 }
 
-                nodes[index] = nodes[index].next;
-                if (nodes[index] == null)
+                node = node.next;
+                if (node != null)
                 {
-                    nodes.RemoveAt(index);
+                    int i = nodes.BinarySearch(node, compare);
+                    if (i < 0)
+                    {
+                        i = ~i;
+                    }
+
+                    nodes.Insert(i, node);
                 }
             }
 
