@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0FB90F83-8EDD-4B03-B83C-928EECAA533E}</ProjectGuid>
+    <ProjectGuid>{858EB0E5-DE2A-419B-9C26-27A72AAACA35}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_0856Tests</RootNamespace>
-    <AssemblyName>0856Tests</AssemblyName>
+    <RootNamespace>_930870Tests</RootNamespace>
+    <AssemblyName>930870Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -57,16 +57,15 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Solution.cs" />
     <Compile Include="SolutionTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\0856\0856.csproj">
-      <Project>{E75A2CFA-FEEE-48AF-BEA8-F3A5994C0910}</Project>
-      <Name>0856</Name>
+    <ProjectReference Include="..\930870\930870.csproj">
+      <Project>{D5809EF2-70A3-4EAE-8D20-C5CFEA2D8B71}</Project>
+      <Name>930870</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
