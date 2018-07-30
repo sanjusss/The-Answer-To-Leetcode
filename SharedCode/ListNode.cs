@@ -31,7 +31,7 @@ namespace SharedCode
             return root;
         }
 
-        static public bool AreEqual(ListNode l1, ListNode l2)
+        public static bool AreEqual(ListNode l1, ListNode l2)
         {
             while (l1 != null && l2 != null)
             {
