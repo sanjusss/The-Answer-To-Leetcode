@@ -11,55 +11,50 @@ namespace _1070926
         public int MinFlipsMonoIncr(string S)
         {
             int length = S.Length;
-            int one = 0;
             int zero = 0;
-            int lastZeroIndex = -1;
-            char lastChar = '\0';
-
-            int startOneLength = 0;
-            int firstZeroLength = 0;
-            int res = 0;
-            for (int i = 0; i < length; ++i)
+            int one = 0;
+            foreach (var i in S)
             {
-                if (S[i] == '0')
+                if (i == '0')
                 {
-                    lastZeroIndex = i;
-                    if (one > 0)
-                    {
-                        ++zero;
-                    }
+                    ++zero;
                 }
                 else
                 {
                     ++one;
-                    if (lastChar == '0' && firstZeroLength == 0)
-                    {
-                        firstZeroLength = zero;
-                        if (startOneLength > 0 && firstZeroLength >= startOneLength)
-                        {
-                            res += startOneLength;
-                            one = 1;
-                            zero = 0;
-                            lastZeroIndex = -1;
-                            firstZeroLength = 0;
-                        }
-                    }
+                }
+            }
 
-                    if (firstZeroLength == 0)
-                    {
-                        startOneLength = one;
-                    }
+            int min = Math.Min(zero, one);
+            if (min == 0)
+            {
+                return 0;
+            }
+
+            int zl = 0;
+            int ol = 0;
+            foreach (var i in S)
+            {
+                if (i == '0')
+                {
+                    ++zl;
+                }
+                else
+                {
+                    ++ol;
                 }
 
-                lastChar = S[i];
+                int zr = zero - zl;
+                int or = one - ol;
+
+                min = Math.Min(min, ol + zr);
+                if (min == 0)
+                {
+                    return 0;
+                }
             }
 
-            if (lastZeroIndex >= zero)
-            {
-                one -= (length - 1 - lastZeroIndex);
-            }
-
-            return res + Math.Min(one, zero);
+            return min;
         }
     }
 }
