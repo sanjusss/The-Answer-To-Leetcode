@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)InputConvertor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ListNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Permutation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TreeNode.cs" />
   </ItemGroup>
 </Project>
