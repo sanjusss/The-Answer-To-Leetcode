@@ -28,7 +28,7 @@ namespace SharedCode
 
             if (topIndex < 0)
             {
-
+                list.Reverse(0);
                 return false;
             }
 
